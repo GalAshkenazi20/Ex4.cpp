@@ -61,6 +61,7 @@ namespace container
             return os;
         }
 
+        // Forward declarations
         class AscendingOrder;
         class DescendingOrder;
         class SideCrossOrder;
@@ -68,6 +69,7 @@ namespace container
         class Order;
         class MiddleOutOrder;
 
+        // Methods to get iterators
         AscendingOrder ascending() const { return AscendingOrder(*this); }
         DescendingOrder descending() const { return DescendingOrder(*this); }
         SideCrossOrder sidecross() const { return SideCrossOrder(*this); }

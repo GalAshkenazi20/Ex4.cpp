@@ -15,10 +15,9 @@ namespace container
 
     public:
         Iterator() = default;
-        Iterator(const std::vector<T>& data) : container(data), it(container.begin()) {}
         virtual ~Iterator() = default;
         
-        // Iterator operations
+        // Iterator operations for the iterator itself
         T operator*() const { return *it; }
         
         Iterator& operator++() { 
@@ -34,15 +33,13 @@ namespace container
             return it == other.it; 
         }
         
-        Iterator begin() { 
-            it = container.begin(); 
-            return *this; 
+        // For range-based for loops - return iterators to the container
+        typename std::vector<T>::const_iterator begin() const {
+            return container.begin();
         }
         
-        Iterator end() { 
-            Iterator temp = *this;
-            temp.it = container.end(); 
-            return temp; 
+        typename std::vector<T>::const_iterator end() const {
+            return container.end();
         }
 
     protected:
